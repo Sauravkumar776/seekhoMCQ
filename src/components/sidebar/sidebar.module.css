@@ -1,0 +1,25 @@
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    margin-left: 6rem;
+    width: 20rem;
+
+  }
+  
+  .selectedAnswer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    font-size: 20px;
+    font-weight: bold;
+  
+  }
+  
+  .questionNumber {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  
+  .answer {
+    flex: 1;
+  }
