@@ -4,6 +4,7 @@ import styles from "./assessment-page.module.css";
 import { QuestionContext } from "../../context/QuestionContext";
 import ShowScore from "../showScore/show-score.component";
 import Sidebar from "../sidebar/sidebar.component";
+import Timer from "../timer/timer.component";
 
 const AssessmentApp = () => {
   const {
@@ -63,11 +64,9 @@ const AssessmentApp = () => {
               options={questions[currentQuestion].options}
               handleAnswer={handleAnswer}
             />
-            <div className={styles.timerContainer}>
-              Time left: {secondsLeft}s
-            </div>
+            <Timer />
           </div>
-        <Sidebar />
+          <Sidebar />
         </div>
       )}
     </div>

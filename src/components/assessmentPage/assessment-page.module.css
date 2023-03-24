@@ -1,47 +1,38 @@
-.timerContainer {
-    margin: 10px;
-  }
 
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.quizContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+.questionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+
+@media only screen and (min-width: 768px) {
   .appContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
   }
-  
-  .quizContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 2rem;
+}
+
+@media only screen and (min-width: 992px) {
+  .scoreContainer {
+    margin: 50px auto;
+    padding: 50px;
+    width: 50%;
   }
-  
-  .questionContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 2rem;
-  }
-  
-  .timerContainer {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-top: 2rem;
-  } 
-  
-  @media only screen and (min-width: 768px) {
-    .appContainer {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-  }
-  
-  @media only screen and (min-width: 992px) {
-    .scoreContainer {
-      margin: 50px auto;
-      padding: 50px;
-      width: 50%;
-    }
-  }
-  
-  
+}
