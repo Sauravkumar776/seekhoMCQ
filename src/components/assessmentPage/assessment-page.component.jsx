@@ -1,19 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import QuestionCard from '../cards/question-card/question-card.component';
-import styles from './assessment-page.module.css';
-import { QuestionContext } from '../../context/QuestionContext';
+import React, { useEffect, useContext } from "react";
+import QuestionCard from "../cards/question-card/question-card.component";
+import styles from "./assessment-page.module.css";
+import { QuestionContext } from "../../context/QuestionContext";
+import ShowScore from "../showScore/show-score.component";
+import Sidebar from "../sidebar/sidebar.component";
 
 const AssessmentApp = () => {
-  const { questions, currentQuestion, setCurrentQuestion, selectedAnswers, setSelectedAnswers } = React.useContext(
-    QuestionContext
-  );
-
-  const [showScore, setShowScore] = useState(false);
-  const [score, setScore] = useState(0);
-  const [secondsLeft, setSecondsLeft] = useState(30);
+  const {
+    questions,
+    currentQuestion,
+    setCurrentQuestion,
+    selectedAnswers,
+    setSelectedAnswers,
+    score,
+    setScore,
+    showScore,
+    setShowScore,
+    secondsLeft,
+    setSecondsLeft,
+  } = useContext(QuestionContext);
 
   const handleAnswer = (selectedOption) => {
-    setSelectedAnswers({ ...selectedAnswers, [currentQuestion]: selectedOption });
+    setSelectedAnswers({
+      ...selectedAnswers,
+      [currentQuestion]: selectedOption,
+    });
 
     if (selectedOption === questions[currentQuestion].answer) {
       setScore(score + 1);
@@ -25,14 +36,6 @@ const AssessmentApp = () => {
     } else {
       setShowScore(true);
     }
-  };
-
-  const handleRestart = () => {
-    setCurrentQuestion(0);
-    setShowScore(false);
-    setScore(0);
-    setSecondsLeft(30);
-    setSelectedAnswers({});
   };
 
   useEffect(() => {
@@ -51,10 +54,7 @@ const AssessmentApp = () => {
   return (
     <div className={styles.appContainer}>
       {showScore ? (
-        <div className={styles.scoreContainer}>
-          <h2>You scored {score} out of {questions.length}!</h2>
-          <button onClick={handleRestart}>Restart</button>
-        </div>
+        <ShowScore />
       ) : (
         <div className={styles.quizContainer}>
           <div className={styles.questionContainer}>
@@ -67,15 +67,7 @@ const AssessmentApp = () => {
               Time left: {secondsLeft}s
             </div>
           </div>
-          <div className={styles.sidebar}>
-            <h2>Selected Answers</h2>
-            {Object.keys(selectedAnswers).map((questionIndex) => (
-              <div key={questionIndex} className={styles.selectedAnswer}>
-                <div className={styles.questionNumber}>Q{+questionIndex + 1}:</div>
-                <div className={styles.answer}>{selectedAnswers[questionIndex]}</div>
-              </div>
-            ))}
-          </div>
+        <Sidebar />
         </div>
       )}
     </div>
