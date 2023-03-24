@@ -1,11 +1,12 @@
-
-import './App.css';
+import "./App.css";
+import AssessmentApp from "./components/assessmentPage/assessment-page.component";
+import { QuestionProvider } from "./context/QuestionContext";
 
 function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <QuestionProvider>
+      <AssessmentApp />
+    </QuestionProvider>
   );
 }
 
