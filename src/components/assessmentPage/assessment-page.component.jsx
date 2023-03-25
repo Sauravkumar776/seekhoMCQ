@@ -5,6 +5,7 @@ import { QuestionContext } from "../../context/QuestionContext";
 import ShowScore from "../showScore/show-score.component";
 import Sidebar from "../sidebar/sidebar.component";
 import Timer from "../timer/timer.component";
+import { ScoreContext } from "../../context/ScoreContext";
 
 const AssessmentApp = () => {
   const {
@@ -13,13 +14,17 @@ const AssessmentApp = () => {
     setCurrentQuestion,
     selectedAnswers,
     setSelectedAnswers,
+    secondsLeft,
+    setSecondsLeft,
+  } = useContext(QuestionContext);
+
+  const {
     score,
     setScore,
     showScore,
     setShowScore,
-    secondsLeft,
-    setSecondsLeft,
-  } = useContext(QuestionContext);
+
+  } = useContext(ScoreContext);
 
   const handleAnswer = (selectedOption) => {
     setSelectedAnswers({
