@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { QuestionContext } from "../../context/QuestionContext";
+import { ScoreContext } from "../../context/ScoreContext";
 import styles from './show-score.module.css';
 
 const ShowScore = () => {
@@ -8,11 +9,13 @@ const ShowScore = () => {
         questions,
         setCurrentQuestion,
         setSelectedAnswers,
-        score,
-        setScore,
-        setShowScore,
+        // score,
+        // setScore,
+        // setShowScore,
         setSecondsLeft
       } = useContext(QuestionContext);
+
+      const {score,setScore, setShowScore} = useContext(ScoreContext);
 
       
     const handleRestart = () => {
