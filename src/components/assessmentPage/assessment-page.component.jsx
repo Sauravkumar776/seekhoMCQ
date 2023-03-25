@@ -6,6 +6,7 @@ import ShowScore from "../showScore/show-score.component";
 import Sidebar from "../sidebar/sidebar.component";
 import Timer from "../timer/timer.component";
 import { ScoreContext } from "../../context/ScoreContext";
+import Button from "../button/button.component";
 
 const AssessmentApp = () => {
   const {
@@ -18,13 +19,7 @@ const AssessmentApp = () => {
     setSecondsLeft,
   } = useContext(QuestionContext);
 
-  const {
-    score,
-    setScore,
-    showScore,
-    setShowScore,
-
-  } = useContext(ScoreContext);
+  const { score, setScore, showScore, setShowScore } = useContext(ScoreContext);
 
   const handleAnswer = (selectedOption) => {
     setSelectedAnswers({
@@ -41,6 +36,16 @@ const AssessmentApp = () => {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowScore(true);
+    }
+  };
+
+  const previousQuestionHandler = () => {
+    const prevQuestion = currentQuestion - 1;
+    if (prevQuestion < 1) {
+      setCurrentQuestion(0);
+    } else {
+      setScore(score - 1);
+      setCurrentQuestion(prevQuestion);
     }
   };
 
@@ -69,6 +74,8 @@ const AssessmentApp = () => {
               options={questions[currentQuestion].options}
               handleAnswer={handleAnswer}
             />
+
+            <Button prevQuestionHandler={previousQuestionHandler} />
             <Timer />
           </div>
           <Sidebar />
