@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/seekhoMCQ/static/css/main.adadc399.css",
+    "main.js": "/seekhoMCQ/static/js/main.8384f8be.js",
+    "static/js/787.0420ccf9.chunk.js": "/seekhoMCQ/static/js/787.0420ccf9.chunk.js",
+    "index.html": "/seekhoMCQ/index.html",
+    "main.adadc399.css.map": "/seekhoMCQ/static/css/main.adadc399.css.map",
+    "main.8384f8be.js.map": "/seekhoMCQ/static/js/main.8384f8be.js.map",
+    "787.0420ccf9.chunk.js.map": "/seekhoMCQ/static/js/787.0420ccf9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.adadc399.css",
+    "static/js/main.8384f8be.js"
+  ]
+}
